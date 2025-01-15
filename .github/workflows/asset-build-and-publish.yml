@@ -15,8 +15,8 @@ jobs:
   version-check:
     runs-on: ubuntu-latest
     outputs:
-      version_updated:: ${{ steps.version_check.outputs.version_updated}}
-      tag:: ${{ steps.version_check.outputs.tag}}
+      version_updated: ${{ steps.version_check.outputs.version_updated}}
+      tag: ${{ steps.version_check.outputs.tag}}
     steps:
       - name: Check out code
         uses: actions/checkout@v4
