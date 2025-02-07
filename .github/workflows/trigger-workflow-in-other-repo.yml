@@ -18,6 +18,12 @@ jobs:
           owner: ${{ github.repository_owner }}
           repositories: workflow-tests
       - 
+        name: Debug Token Scope
+        run: |
+          curl -H "Authorization: Bearer ${{ steps.get_token.outputs.token }}" \
+              -H "Accept: application/vnd.github+json" \
+              https://api.github.com/luitjens-test-gh-app/repos
+      -
         name: Send repository dispatch event
         run: |
           curl -X POST -H "Accept: application/vnd.github+json" \
