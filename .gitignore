@@ -1,0 +1,3 @@
+node_modules
+generate-jwt.js
+private-key.pem
