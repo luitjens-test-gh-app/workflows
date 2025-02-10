@@ -1,0 +1,11 @@
+{
+  "name": "workflows",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:luitjens-test-gh-app/workflows.git",
+  "author": "busma13 <pluitjens@terascope.io>",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  }
+}
