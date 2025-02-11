@@ -26,13 +26,14 @@ jobs:
               https://api.github.com/repos/luitjens-test-gh-app/workflow-tests
       -
         name: Send repository dispatch event
+        # this doesn't work
         run: |
           curl -X POST -H "Accept: application/vnd.github+json" \
                -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
                https://api.github.com/repos/luitjens-test-gh-app/workflow-tests/dispatches \
                -d '{"event_type":"trigger-workflow"}'
       -
-        name: Send repository dispatch event
+        name: Send workflow dispatch event
         run: |
           curl -X POST -H "Accept: application/vnd.github+json" \
                -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
