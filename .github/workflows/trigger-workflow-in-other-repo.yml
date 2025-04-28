@@ -23,11 +23,19 @@ jobs:
           echo "token: ${{ steps.generate-token.outputs.token }}"
           curl -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
               -H "Accept: application/vnd.github+json" \
-              https://api.github.com/luitjens-test-gh-app/repos
+              https://api.github.com/repos/luitjens-test-gh-app/workflow-tests
       -
         name: Send repository dispatch event
+        # this doesn't work
         run: |
           curl -X POST -H "Accept: application/vnd.github+json" \
                -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
                https://api.github.com/repos/luitjens-test-gh-app/workflow-tests/dispatches \
                -d '{"event_type":"trigger-workflow"}'
+      -
+        name: Send workflow dispatch event
+        run: |
+          curl -X POST -H "Accept: application/vnd.github+json" \
+               -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
+               https://api.github.com/repos/luitjens-test-gh-app/workflow-tests/actions/workflows/triggered-workflow-dispatch.yml/dispatches \
+               -d '{"ref":"main"}'
